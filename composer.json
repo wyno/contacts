@@ -1,0 +1,16 @@
+{
+    "name": "wyno/contacts",
+    "description": "Simple contacts list with php.",
+    "version": "1.0",
+    "authors": [
+        {
+            "name": "Ata amini",
+            "email": "ata.aminie@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Wyno\\": ""
+        }
+    }
+}

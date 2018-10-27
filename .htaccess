@@ -1,0 +1,24 @@
+# global config
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    DirectoryIndex index.php index.html
+    RewriteRule (^\.|/\.) - [F]
+</IfModule>
+
+# protect files
+<Files ~ "(.lock|.git|.htaccess)">
+    Order allow,deny
+    Deny from all
+</Files>
+
+
+# if mode rewrite enabled
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_URI} !^(/statics-assets|/statics)/
+    RewriteCond %{REQUEST_URI} !index.php
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ ./index.php [L]
+</IfModule>
